@@ -1,103 +1,234 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="OpenCar - Buy Chinese Cars Anywhere in the World. A global platform connecting buyers with top Chinese car brands." />
-  <title>OpenCar | Buy Chinese Cars Worldwide</title>
-  <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OpenCar — Buy Chinese Cars, Anywhere in the World</title>
+  <meta name="description" content="OpenCar — Global marketplace to buy Chinese cars and ship worldwide. Explore brands, request quotes, and arrange global logistics and after-sales." />
+  <link rel="icon" href="data:;base64,iVBORw0KGgo=" />
   <style>
-    body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      background-color: #f9fafb;
-      color: #111827;
-    }
-    header {
-      background-color: #0b74de;
-      color: white;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 2rem;
-    }
-    header img {
-      height: 40px;
-    }
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin-left: 1.5rem;
-      font-weight: 500;
-    }
-    .hero {
-      text-align: center;
-      padding: 6rem 1rem;
-      background: linear-gradient(180deg, #0b74de 0%, #0a5ec4 100%);
-      color: white;
-    }
-    .hero h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-    }
-    .hero p {
-      font-size: 1.25rem;
-      margin-bottom: 2rem;
-    }
-    .hero button {
-      background-color: white;
-      color: #0b74de;
-      padding: 0.75rem 1.5rem;
-      border: none;
-      border-radius: 8px;
-      font-size: 1rem;
-      cursor: pointer;
-    }
-    section {
-      padding: 4rem 2rem;
-      text-align: center;
-    }
-    footer {
-      background-color: #111827;
-      color: white;
-      padding: 2rem;
-      text-align: center;
+    /* Reset */
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial; color:#0b1320;background:#f8fbff}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;height:auto;display:block}
+
+    /* Layout */
+    .container{max-width:1180px;margin:0 auto;padding:28px}
+    header{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo-wrap{width:56px;height:56px;display:flex;align-items:center;justify-content:center;border-radius:10px;background:linear-gradient(135deg,#0b74ff 0%,#0066d6 100%);box-shadow:0 6px 20px rgba(11,116,255,0.12)}
+    .brand-name{font-weight:700;font-size:20px;color:#07203a}
+    nav a{margin-left:18px;font-weight:600;color:#14446b}
+
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1fr 460px;gap:32px;align-items:center;padding:40px 0}
+    .hero h1{font-size:44px;line-height:1.02;margin-bottom:14px;color:#05203a}
+    .hero p{color:#334e68;margin-bottom:20px;font-size:16px}
+    .btn-primary{display:inline-block;padding:12px 22px;border-radius:10px;background:#0066d6;color:white;font-weight:700}
+    .btn-ghost{display:inline-block;padding:10px 18px;border-radius:10px;border:1px solid rgba(6,48,88,0.08);color:#064b72;margin-left:12px}
+    .muted{background:#ffffff;padding:18px;border-radius:12px;border:1px solid rgba(6,48,88,0.06)}
+
+    /* Features */
+    .features{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin:36px 0}
+    .card{background:white;padding:18px;border-radius:12px;box-shadow:0 6px 20px rgba(9,30,63,0.04)}
+    .card h3{margin-bottom:8px;color:#062445}
+    .card p{color:#465c6b;font-size:14px}
+
+    /* Brand strip */
+    .brands{display:flex;gap:18px;align-items:center;flex-wrap:wrap;margin-top:12px}
+    .brand-item{background:white;padding:10px 14px;border-radius:10px;box-shadow:0 4px 12px rgba(9,30,63,0.03);font-weight:700;color:#063b5a}
+
+    /* CTA */
+    .cta{background:linear-gradient(90deg,#0066d6,#0b74ff);color:white;padding:36px;border-radius:14px;text-align:center;margin:36px 0}
+
+    /* Contact & Footer */
+    .contact-form{display:grid;gap:10px;background:white;padding:18px;border-radius:12px;box-shadow:0 10px 30px rgba(9,30,63,0.06)}
+    footer{padding:28px 0;color:#5b6f7f;font-size:14px;text-align:center}
+
+    /* Responsive */
+    @media (max-width:980px){
+      .hero{grid-template-columns:1fr;padding:24px 0}
+      .hero h1{font-size:32px}
+      nav a{display:none}
     }
   </style>
 </head>
 <body>
-  <header>
-    <img src="assets/logo.svg" alt="OpenCar Logo" />
-    <nav>
-      <a href="#features">Features</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <!-- Inline SVG temporary logo -->
+        <div class="logo-wrap" aria-hidden="true">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="OpenCar logo">
+            <circle cx="12" cy="12" r="10" fill="white" opacity="0.06" />
+            <path d="M3 12c0 4.97 4.03 9 9 9s9-4.03 9-9-4.03-9-9-9S3 7.03 3 12z" stroke="white" stroke-width="0.4" opacity="0.12"/>
+            <path d="M6 15c1.5-2 3.5-3 6-3s4.5 1 6 3" stroke="white" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="8.8" cy="13.6" r="0.9" fill="white" />
+            <circle cx="15.2" cy="13.6" r="0.9" fill="white" />
+          </svg>
+        </div>
+        <div>
+          <div class="brand-name">OpenCar</div>
+          <div style="font-size:12px;color:#2f5a78">Global marketplace for Chinese cars</div>
+        </div>
+      </div>
 
-  <section class="hero">
-    <h1>Buy Chinese Cars, Anywhere in the World.</h1>
-    <p>OpenCar connects global buyers with top Chinese car brands.</p>
-    <button>Explore Now</button>
-  </section>
+      <nav>
+        <a href="#brands">Brands</a>
+        <a href="#how">How it works</a>
+        <a href="#support">Support</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
 
-  <section id="features">
-    <h2>Why Choose OpenCar?</h2>
-    <p>Global shipping, authentic Chinese brands, trusted platform.</p>
-  </section>
+    <main>
+      <section class="hero">
+        <div>
+          <h1>Buy Chinese Cars, Anywhere in the World.</h1>
+          <p>OpenCar connects global buyers with trusted Chinese car manufacturers and certified exporters. Browse models, request a quote, and ship to your country with customs and after-sales support.</p>
+          <a class="btn-primary" href="#brands">Explore Brands</a>
+          <a class="btn-ghost" href="#how">How it works</a>
+          <div style="height:18px"></div>
+          <div class="muted">Global logistics • Compliance & certification • Payment protection</div>
+        </div>
 
-  <section id="about">
-    <h2>About Us</h2>
-    <p>OpenCar is a global e-commerce platform dedicated to making Chinese automobiles accessible worldwide.</p>
-  </section>
+        <div class="muted" style="text-align:center">
+          <img src="https://images.unsplash.com/photo-1549921296-3d2a0ecf1f28?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="OpenCar example vehicle">
+          <div style="margin-top:12px;font-weight:700;color:#053a5c">Discover the latest EV & ICE models from leading Chinese brands</div>
+        </div>
+      </section>
 
-  <section id="contact">
-    <h2>Contact Us</h2>
-    <p>Email: contact@opencar.global</p>
-  </section>
+      <section id="brands">
+        <h2 style="margin-bottom:18px;color:#05203a">Featured Brands</h2>
+        <div class="brands">
+          <div class="brand-item">BYD</div>
+          <div class="brand-item">Geely</div>
+          <div class="brand-item">NIO</div>
+          <div class="brand-item">Chery</div>
+          <div class="brand-item">Great Wall</div>
+          <div class="brand-item">XPeng</div>
+        </div>
+      </section>
 
-  <footer>
-    <p>© 2025 OpenCar. All rights reserved.</p>
-  </footer>
+      <section id="how" style="margin-top:20px">
+        <h2 style="margin-bottom:12px;color:#05203a">How It Works</h2>
+        <div class="features">
+          <div class="card">
+            <h3>1. Browse & Compare</h3>
+            <p>Search models by segment, range, and features. Compare specs, pricing and available export packages.</p>
+          </div>
+          <div class="card">
+            <h3>2. Request Quote</h3>
+            <p>Request a customized quote including export fees, shipping, taxes and optional after-sales plans.</p>
+          </div>
+          <div class="card">
+            <h3>3. Secure Payment</h3>
+            <p>Payment protection with escrow-like flow. We support major international payment rails and trade financing partners.</p>
+          </div>
+          <div class="card">
+            <h3>4. Global Logistics & Support</h3>
+            <p>Door-to-door or port-to-port shipping, customs clearance, homologation guidance and local after-sales partner matching.</p>
+          </div>
+        </div>
+      </section>
+
+      <section style="margin-top:8px">
+        <h2 style="margin-bottom:12px;color:#05203a">Why Choose OpenCar</h2>
+        <div class="features">
+          <div class="card">
+            <h3>Verified Suppliers</h3>
+            <p>We work with certified manufacturers and licensed exporters to ensure product authenticity and warranty coverage.</p>
+          </div>
+          <div class="card">
+            <h3>International Compliance</h3>
+            <p>Assistance with homologation, safety standards and documentation for many regions.</p>
+          </div>
+          <div class="card">
+            <h3>Transparent Pricing</h3>
+            <p>All quotes include a clear breakdown of costs: FOB/CIF, shipping, taxes, and optional services.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="cta">
+        <h2>Ready to import?</h2>
+        <p style="margin:12px 0">Get a tailored quote for your country — we’ll handle logistics, compliance and local support.</p>
+        <a class="btn-primary" href="#contact" style="background:white;color:#0066d6">Request a Quote</a>
+      </section>
+
+      <section id="support">
+        <h2 style="margin-bottom:12px;color:#05203a">Support & Resources</h2>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start">
+          <div class="card">
+            <h3>Documentation</h3>
+            <p>Export rules, homologation checklists, and country-specific guides to help you evaluate import feasibility.</p>
+          </div>
+          <div class="card">
+            <h3>Trade Financing</h3>
+            <p>We partner with trade-finance providers to offer competitive terms for qualifying buyers and dealers.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" style="margin-top:20px">
+        <h2 style="margin-bottom:12px;color:#05203a">Contact & Quote Request</h2>
+        <p style="color:#334e68;margin-bottom:12px">Fill the form below and our team will reach out within 24–48 hours with the next steps.</p>
+
+        <form class="contact-form" onsubmit="handleSubmit(event)">
+          <input type="text" id="company" placeholder="Company / Name" required style="padding:12px;border-radius:8px;border:1px solid #e6f0fb">
+          <input type="email" id="email" placeholder="Email" required style="padding:12px;border-radius:8px;border:1px solid #e6f0fb">
+          <input type="text" id="country" placeholder="Destination Country" required style="padding:12px;border-radius:8px;border:1px solid #e6f0fb">
+          <textarea id="details" placeholder="Model or requirements (e.g. EV sedan, fleet of 10, left-hand drive)" rows="4" style="padding:12px;border-radius:8px;border:1px solid #e6f0fb"></textarea>
+          <div style="display:flex;gap:12px;align-items:center">
+            <button class="btn-primary" type="submit">Request Quote</button>
+            <button type="button" class="btn-ghost" onclick="window.location.href='#'">Schedule Call</button>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <footer>
+      © <span id="year"></span> OpenCar — All rights reserved • Built for global buyers of Chinese vehicles
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Demo form behavior: send mailto as a fallback and log to console (replace with real backend later)
+    function handleSubmit(e){
+      e.preventDefault();
+      const company = document.getElementById('company').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const country = document.getElementById('country').value.trim();
+      const details = document.getElementById('details').value.trim();
+
+      const subject = encodeURIComponent('OpenCar Quote Request — ' + company);
+      const body = encodeURIComponent(`Company/Name: ${company}
+Email: ${email}
+Destination Country: ${country}
+
+Details:
+${details}`);
+
+      // Fallback: open user's mail client. Replace with API call to your backend when ready.
+      window.location.href = `mailto:hello@opencar.com?subject=${subject}&body=${body}`;
+
+      // For developer: you can replace the above with a fetch() POST to your server or Netlify function.
+    }
+  </script>
+
+  <!--
+    Usage notes:
+    1) Save this file as index.html and open locally or deploy to a static host (GitHub Pages / Netlify / Vercel).
+    2) Logo is embedded as an inline SVG inside the header (.logo-wrap). Replace with your SVG or PNG if you have one.
+    3) Next steps I can help with:
+       - Hook the form to a real backend (Node / Netlify Functions) and persist leads to Google Sheets or a CRM.
+       - Add product listing pages, model detail pages and dealer portals (React + Tailwind version).
+       - Integrate multi-currency pricing, international checkout and shipping calculator.
+       - Set up hosting + one-click deployment scripts and DNS/SSL instructions.
+    4) If you want a higher-fidelity logo, tell me preferred icon direction (globe, wheel, map pin) and I can generate PNG/SVG variations.
+  -->
 </body>
 </html>
