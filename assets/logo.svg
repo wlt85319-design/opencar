@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="160" height="40" viewBox="0 0 160 40">
+  <rect width="160" height="40" fill="none"/>
+  <circle cx="20" cy="20" r="18" fill="#0b74de"/>
+  <path d="M60,28 L68,12 L76,28 Z" fill="#0b74de"/>
+  <text x="90" y="25" font-family="Inter, sans-serif" font-size="18" fill="#0b74de" font-weight="600">OpenCar</text>
+</svg>
