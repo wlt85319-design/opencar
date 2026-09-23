@@ -1,0 +1,6 @@
+(function(){
+function esc(s){return String(s||'').replace(/[&<>\"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
+function plan(){const x=window.StudyMateLearningEngine?.nextAction();if(!x)return{empty:true,title:'先完成一次学习任务',copy:'完成课程中的独立判断后，我会根据真实表现安排下一步。',minutes:8,tasks:1};const labels={review:'复测', 'prerequisite-repair':'补前置', 'transfer-verify':'迁移验证',stabilize:'巩固'};const verb=labels[x.action]||'修复';return{...x,title:verb+'「'+x.targetKnowledge+'」',copy:'当前卡点：'+x.reason+'。'+(x.relationWhy?x.relationWhy+'。':'')+'先独立完成，再按需要逐级请求提示。',verb}}
+function render(){const host=document.getElementById('nextActionCard');if(!host)return;const p=plan();host.innerHTML='<small>下一步</small><h3>'+esc(p.title)+'</h3><p>'+esc(p.copy)+'</p><div class="next-action-meta"><b>'+p.minutes+' 分钟</b><span>'+p.tasks+' 个针对练习</span>'+(p.mastery!=null?'<span>当前掌握 '+p.mastery+'%</span>':'')+'</div><button id="startNextAction">'+(p.empty?'开始学习':'现在开始 →')+'</button>';document.getElementById('startNextAction').onclick=()=>{if(p.empty){location.href='./subjects.html';return}location.href='./learning.html?book='+encodeURIComponent(p.book)+'&unit=0&focus='+encodeURIComponent(p.targetKnowledge)}}
+window.StudyMateNextAction={plan,render};document.addEventListener('DOMContentLoaded',render);
+})();

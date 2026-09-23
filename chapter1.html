@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#071426" />
+  <meta name="description" content="元来 LAB 七年级数学第一章有理数完整互动课程。" />
+  <title>元来 LAB · 有理数探索站</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%23071426'/%3E%3Cpath d='M14 31h36M32 13v38' stroke='%2355dff7' stroke-width='5' stroke-linecap='round'/%3E%3Ccircle cx='32' cy='31' r='8' fill='%23dcff4f'/%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="./chapter1.css" />
+<link rel="icon" type="image/png" href="./yuanlai-app-icon.png"><link rel="stylesheet" href="./brand-logo.css"></head>
+<body>
+  <div class="aurora ambient ambient-a"></div>
+  <div class="ambient ambient-b"></div>
+  <main class="station app-shell">
+    <header class="topbar">
+      <a class="brand" href="./index.html"><img class="brand-logo" src="./yuanlai-header-logo-transparent.png" alt="元来Lab"></a>
+      <div class="course-title lesson-meta"><small>七年级数学 · 第一章</small><strong>有理数</strong></div>
+      <div class="topbar-actions top-actions">
+        <button class="ai-teacher-entry" id="openAiTeacher" type="button">✦ AI老师</button>
+        <button class="catalog-btn" id="openMap" aria-label="打开课程目录"><span>▦</span> 课程目录</button>
+        <button class="fullscreen-btn" id="fullscreenBtn" aria-label="全屏学习"><span>⛶</span> 全屏</button>
+        <div class="streak"><span>✦</span> 3 天</div>
+        <div class="avatar">D</div>
+      </div>
+    </header>
+
+    <section class="mission-shell workspace">
+      <aside class="mission-rail rail" id="missionRail" aria-label="第一章课程目录"></aside>
+
+      <section class="play-area lab">
+        <div class="lab-kicker"><span class="pulse"></span> CONCEPT LAB · CHAPTER 01</div>
+        <div class="story-strip"><span>✦</span><div><b>零点天文台调查</b><p>跟随喵伯爵，从真实情境中建立完整的有理数知识体系。</p></div></div>
+        <nav class="learning-scenes" id="learningScenes" aria-label="学习场景">
+          <button class="active" data-scene="explore"><i>01</i><span><b>探索新世界</b><small>互动教材 · 先理解</small></span><em id="exploreState">进行中</em></button>
+          <button data-scene="practice"><i>02</i><span><b>AI 能力训练场</b><small>追问诊断 · 举一反三</small></span><em id="practiceState">待训练</em></button>
+          <button data-scene="repair"><i>03</i><span><b>漏洞清除局</b><small>错题修复 · 延迟复测</small></span><em id="repairState">0 个漏洞</em></button>
+        </nav>
+        <div class="daily-route"><span>今日学习路线</span><b>探索 1 个知识点</b><i>→</i><b>训练 3 次</b><i>→</i><b>清除 1 个漏洞</b></div>
+        <div id="explorePanel" class="scene-panel active">
+        <div class="media-tools" aria-label="课程讲解工具">
+          <button id="reopenIntro" type="button"><span>▶</span><b>重看剧情视频</b><small>零点失踪案序章</small></button>
+          <button id="speakLesson" type="button"><span>🔊</span><b>听喵伯爵 讲本课</b><small>跟随当前学习节点</small></button>
+        </div>
+        <div class="mission-head">
+          <div><span id="missionCode">MISSION 01</span><h1 id="lessonTitle">正数和负数</h1><p id="lessonGoal"></p></div>
+          <div class="progress-orb"><b id="chapterProgress">0%</b><span>本章掌握</span></div>
+        </div>
+
+        <nav class="phase-path" id="phasePath" aria-label="本课学习步骤"></nav>
+
+        <div class="game-world" id="gameWorld">
+          <div class="world-grid"></div>
+          <div class="world-label"><span id="worldName">零界城</span><b id="phaseBadge">剧情任务</b></div>
+          <div class="xp-badge"><b id="xpValue">0</b><span>XP</span></div>
+          <div class="visual-stage" id="visualStage" aria-live="polite"></div>
+          <div class="cc-avatar"><img src="./miao-cc.png" alt="喵伯爵" /></div>
+          <div class="cc-bubble" id="ccBubble">先观察，再动手。</div>
+        </div>
+
+        <section class="challenge-card">
+          <div class="challenge-kicker"><span id="stepNumber">01 / 08</span><b id="activityLabel">任务简报</b></div>
+          <h2 id="questionText"></h2>
+          <p class="question-copy" id="questionCopy"></p>
+          <div class="answer-zone" id="answerZone"></div>
+          <div class="feedback hidden" id="feedback"></div>
+          <div class="challenge-actions">
+            <button class="hint-btn inline" id="hintBtn">✦ 给我一个提示</button>
+            <button class="next-btn hidden" id="nextStep">继续 <span>→</span></button>
+          </div>
+        </section>
+        </div>
+
+        <section id="practicePanel" class="scene-panel training-panel" hidden>
+          <header class="mode-hero"><div><span id="practiceChapter">SCENE 02 · AI PRACTICE</span><h1 id="practiceTitle">能力训练场</h1><p id="practiceGoal">不是连续刷题。喵伯爵会根据你的回答追问理由、定位错因，再给一道真正变化过的题。</p></div><div class="mode-score"><b id="practiceScore">0 / 3</b><small>本轮训练</small></div></header>
+          <div class="training-grid">
+            <section class="training-main">
+              <div class="training-stepper"><span class="active">1 作答</span><span>2 解释</span><span>3 迁移</span></div>
+              <small id="practiceTag">当前知识点</small><h2 id="practiceQuestion"></h2><p id="practicePrompt"></p>
+              <div id="practiceAnswers" class="practice-answers"></div>
+              <div id="socraticBox" class="socratic-box hidden"></div>
+            </section>
+            <aside class="thinking-trace"><span>喵伯爵正在观察</span><h3>你的思考路径</h3><div id="thinkingTrace"></div><button id="practiceHint">只给我一个提示</button></aside>
+          </div>
+        </section>
+
+        <section id="repairPanel" class="scene-panel repair-panel" hidden>
+          <header class="mode-hero repair-hero"><div><span>SCENE 03 · ERROR CLEARANCE</span><h1>漏洞清除局</h1><p>错题不会因为“重新做对一次”就消失。完成修复、变式验证和延迟复测，才算真正掌握。</p></div><div class="mode-score"><b id="repairCount">0</b><small>待清除漏洞</small></div></header>
+          <div class="repair-map">
+            <aside class="fault-list"><span>知识漏洞地图</span><div id="faultList"></div></aside>
+            <section class="repair-mission">
+              <div class="repair-phases"><span class="active" data-repair-phase="0">当天修复</span><i>→</i><span data-repair-phase="1">变式验证</span><i>→</i><span data-repair-phase="2">延迟复测</span></div>
+              <small id="repairTag">等待扫描</small><h2 id="repairQuestion">完成一次训练后，喵伯爵会把真实错因送到这里。</h2><p id="repairCopy">你也可以选择当前知识点进行一次预防性检查。</p>
+              <div id="repairAnswers" class="practice-answers"></div>
+              <button id="startPreventive" class="mission-start">扫描当前知识点 <span>→</span></button>
+            </section>
+          </div>
+        </section>
+      </section>
+
+      <aside class="coach-panel coach">
+        <div class="coach-head"><div class="cc-orb"><img src="./miao-cc.png" alt="喵伯爵"></div><div><span>喵伯爵</span><strong>AI 概念教练</strong></div><i class="online"></i></div>
+        <span class="coach-label">喵伯爵的学习诊断</span>
+        <h3 id="coachHeadline">我会记录你怎样理解，<br>不只记录对错。</h3>
+        <div class="diagnosis" id="diagnosis"></div>
+        <section class="learning-card">
+          <small>本课核心规律</small>
+          <p id="principleText"></p>
+        </section>
+        <section class="session-card">
+          <span>本次任务</span><b id="sessionScore">0 / 5</b><small>关键挑战正确</small>
+        </section>
+      </aside>
+    </section>
+  </main>
+
+  <div class="map-overlay hidden" id="mapOverlay">
+    <section class="map-modal">
+      <header><div><span>人教版 · 2024 新版</span><h2>第一章 有理数</h2><p>教材第 1–23 页 · 零点天文台完整调查线</p></div><button id="closeMap" aria-label="关闭">×</button></header>
+      <div class="map-summary"><div><b id="mapStepCount">0</b><span>学习节点</span></div><div><b id="mapMissionCount">0</b><span>主线任务</span></div><div><b>2</b><span>教材活动</span></div><div><b>1</b><span>综合终局</span></div></div>
+      <div class="map-grid" id="mapGrid"></div>
+      <a class="back-course" href="./index.html">返回七年级上册课程目录</a>
+    </section>
+  </div>
+
+  <div class="complete-overlay hidden" id="completeOverlay">
+    <section class="complete-card">
+      <span>MISSION COMPLETE</span>
+      <h2 id="completeTitle">本课已完成</h2>
+      <p id="completeCopy"></p>
+      <div class="mastery-ring"><b id="masteryValue">100%</b><span>即时掌握度</span></div>
+      <div class="result-row"><div><small>互动探索</small><b>完成</b></div><div><small>错误诊断</small><b>完成</b></div><div><small>举一反三</small><b>通过</b></div><div><small>Boss 挑战</small><b id="bossResult">通过</b></div></div>
+      <div class="complete-actions"><button id="replayLesson">重新挑战</button><button id="continueCourse">进入下一任务 →</button></div>
+    </section>
+  </div>
+
+  <div class="intro-overlay hidden" id="introOverlay">
+    <section class="intro-card">
+      <video id="chapterIntroVideo" controls playsinline preload="metadata" poster="./zero-point-case-poster.jpg">
+        <source src="./zero-point-case-intro.mp4" type="video/mp4" />
+      </video>
+      <div class="intro-copy">
+        <span>CHAPTER 01 · CASE FILE</span>
+        <h2>零点从天文台消失了</h2>
+        <p>温度、账目、坐标与距离同时失灵。先找出“两个 3 为什么意义不同”，再和喵伯爵逐层恢复有理数世界。</p>
+        <div><button id="replayIntro">重新播放</button><button id="enterObservatory">开始调查 →</button></div>
+      </div>
+    </section>
+  </div>
+  <div class="intro-overlay hidden" id="outroOverlay">
+    <section class="intro-card">
+      <video id="chapterOutroVideo" controls playsinline preload="metadata" poster="./chapter1-zero-restored-poster.jpg">
+        <source src="./chapter1-zero-restored-outro.mp4" type="video/mp4" />
+      </video>
+      <div class="intro-copy">
+        <span>CHAPTER 01 · CASE CLOSED</span>
+        <h2>零点已经重新出现</h2>
+        <p>正负方向、相反数和绝对值重新归位。但远处的运算核心又发出了异常信号——下一项修复任务已经开始。</p>
+        <div><button id="replayOutro">重新播放</button><button id="reviewChapter1">返回复习</button><button id="enterChapter2">进入第二章 →</button></div>
+      </div>
+    </section>
+  </div>
+  <div class="toast" id="toast"></div>
+  <script src="./pep-textbook-manifest.js"></script>
+  <script src="./curriculum-learning-map.js"></script>
+  <script src="./learning-identity.js"></script>
+  <script src="./evidence-dimensions.js"></script>
+  <script src="./review-scheduler.js"></script>
+  <script src="./learning-engine.js"></script>
+  <script src="./daily-plan-engine.js"></script>
+  <script src="./learning-scene-adapter.js"></script>
+  <script src="./chapter1.js"></script>
+  <script src="./chapter1-learning-integration.js"></script>
+  <script src="./catalog.js"></script>
+</body>
+</html>

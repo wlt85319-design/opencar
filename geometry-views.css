@@ -1,0 +1,12 @@
+.geometry-lab .cylinder-model{animation:cylinderFloat 3.2s ease-in-out infinite;transform-origin:140px 105px}
+.geometry-lab .cylinder-model .back-edge{stroke-dasharray:6 6;opacity:.65}
+.geometry-lab .projection-view{transform-box:fill-box;transform-origin:center;animation:viewFocus 6s ease-in-out infinite}
+.geometry-lab .projection-view.side{animation-delay:2s}
+.geometry-lab .projection-view.top{animation-delay:4s}
+.geometry-lab .projection-view.top circle{stroke:#d9ff3f}
+.geometry-lab .projection-link{stroke:#6d8ba3;stroke-width:2;stroke-dasharray:8 8;opacity:.2;animation:projectionFlow 6s linear infinite}
+.geometry-lab .projection-link.link-two{animation-delay:2s}
+.geometry-lab .projection-link.link-three{animation-delay:4s}
+@keyframes cylinderFloat{50%{transform:translateY(-5px)}}
+@keyframes viewFocus{0%,15%,100%{opacity:.38;filter:none}20%,34%{opacity:1;filter:drop-shadow(0 0 9px #d9ff3f);transform:scale(1.04)}44%{opacity:.38;filter:none;transform:scale(1)}}
+@keyframes projectionFlow{0%,15%,100%{opacity:.12;stroke-dashoffset:24}20%,34%{opacity:.9;stroke-dashoffset:0}44%{opacity:.12}}

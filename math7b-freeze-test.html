@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>StudyMate · 数学七下冻结测试</title>
+<style>
+body{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;margin:0;background:#f6f7f9;color:#17191c}.wrap{max-width:980px;margin:40px auto;padding:0 20px}.card{background:#fff;border:1px solid #e3e6ea;border-radius:16px;padding:22px;box-shadow:0 8px 30px rgba(0,0,0,.05)}h1{font-size:24px;margin:0 0 10px}.status{font-size:20px;font-weight:700;margin:14px 0}.meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin:16px 0}.box{border:1px solid #e3e6ea;border-radius:12px;padding:12px}.box b{display:block;font-size:22px;margin-top:4px}pre{white-space:pre-wrap;word-break:break-word;background:#111318;color:#f4f5f6;border-radius:12px;padding:16px;max-height:520px;overflow:auto}</style>
+<link rel="icon" type="image/png" href="./yuanlai-app-icon.png"></head>
+<body><main class="wrap"><section class="card"><h1>数学七下 · Content Freeze Regression</h1><div id="status" class="status">正在执行…</div><div id="meta" class="meta"></div><pre id="detail"></pre></section></main>
+<script src="content-depth-standard.js"></script>
+<script src="strict-math-depth-audit.js"></script>
+<script src="curriculum-mapping-registry.js"></script>
+<script src="math7b-ch7-depth-pack.js"></script>
+<script src="math7b-ch7-strict-bridge.js"></script>
+<script src="math7b-main-sections-completion-pack.js"></script>
+<script src="math7b-textbook-activity-pack.js"></script>
+<script src="math7b-ch8-9-strict-supplement.js"></script>
+<script src="math7b-ch10-completion-pack.js"></script>
+<script src="math7b-strict-depth-supplement.js"></script>
+<script src="math7b-ch10-activity-strict-bridge.js"></script>
+<script src="math7b-ch11-completion-pack.js"></script>
+<script src="math7b-ch12-completion-pack.js"></script>
+<script src="math7b-ch11-12-strict-supplement.js"></script>
+<script src="math7b-freeze-readiness.js"></script>
+<script src="content-freeze-regression.js"></script>
+<script src="math7b-freeze-status.js"></script>
+<script>
+(function(){
+ const result=window.StudyMateMath7BContentStatus.evaluate();
+ const r=result.readiness||{};
+ document.getElementById('status').textContent=result.status+' · '+result.reason;
+ document.getElementById('meta').innerHTML=[
+  ['教材映射',`${r.mapped||0}/${r.curriculumItems||0}`],
+  ['严格深度',`${r.strictDepthCompleteCount||0}/${r.fullDepthItems||0}`],
+  ['Coverage gaps',(r.coverageGaps||[]).length],
+  ['Depth gaps',(r.depthGaps||[]).length]
+ ].map(([k,v])=>`<div class="box">${k}<b>${v}</b></div>`).join('');
+ document.getElementById('detail').textContent=JSON.stringify(result,null,2);
+ document.documentElement.dataset.freezeStatus=result.status;
+ if(result.status!=='CONTENT FROZEN') console.error('Math7B freeze regression failed',result);
+ else console.info('Math7B CONTENT FROZEN',result);
+})();
+</script>
+</body></html>

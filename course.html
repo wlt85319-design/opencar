@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <script>location.replace('./chapter2-advanced.html')</script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#101626" />
+  <meta name="description" content="元来 LAB 七年级数学互动学习实验：用方向运动理解有理数加法、减法与加减混合运算。" />
+  <title>元来 LAB · 零点行动</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='15' fill='%23101626'/%3E%3Cpath d='M13 32h38M32 13v38' stroke='%23eaff63' stroke-width='6' stroke-linecap='round'/%3E%3Ccircle cx='32' cy='32' r='7' fill='%2359e6ff'/%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="./styles.css?v=60" />
+<link rel="icon" type="image/png" href="./yuanlai-app-icon.png"><link rel="stylesheet" href="./brand-logo.css"></head>
+<body>
+  <div class="ambient ambient-a"></div>
+  <div class="ambient ambient-b"></div>
+
+  <section class="case-intro hidden" id="caseIntro" aria-label="第二章运算核心任务导入">
+    <div class="case-intro-scene">
+      <video id="caseIntroVideo" preload="metadata" playsinline poster="./chapter2-energy-core-poster.png" data-video-ready="false"></video>
+      <div class="intro-gate" id="introGate">
+        <small>元来 LAB · CHAPTER 02</small>
+        <h2>运算核心失控</h2>
+        <p>零点已经恢复，但正负能量正在错误运转。和喵伯爵一起修复加减、乘除、乘方与运算顺序。</p>
+        <button class="intro-start" id="introStart" type="button">开始修复运算核心 <span>▶</span></button>
+      </div>
+      <div class="intro-video-controls hidden" id="introVideoControls">
+        <button id="introSound" type="button" aria-label="关闭声音">🔊</button>
+        <button class="intro-skip" id="introSkip" type="button">跳过序章</button>
+      </div>
+      <div class="intro-progress"><i id="introProgressBar"></i></div>
+    </div>
+  </section>
+
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" id="brandHome" href="./index.html" aria-label="返回七年级上册课程目录">
+        <img class="brand-logo" src="./yuanlai-header-logo-transparent.png" alt="元来Lab">
+      </a>
+      <div class="lesson-meta">
+        <span class="eyebrow" id="chapterMeta">七年级数学 · 第二章</span>
+        <strong id="lessonMetaTitle">有理数的加法</strong>
+      </div>
+      <div class="top-actions">
+        <button class="catalog-btn" id="catalogBtn" data-global-catalog="true"><span>▦</span> 课程目录</button>
+        <button class="fullscreen-btn" id="fullscreenBtn" aria-label="全屏学习"><span>⛶</span> 全屏</button>
+        <div class="streak" title="连续学习天数"><span>✦</span> 3 天</div>
+        <button class="icon-btn" id="resetBtn" aria-label="重新开始" title="重新开始">↻</button>
+        <div class="avatar">D</div>
+      </div>
+    </header>
+
+    <main class="workspace">
+      <aside class="rail" aria-label="学习进度">
+        <div class="rail-head">
+          <span>零点行动</span>
+          <b id="progressText">01 / 04</b>
+        </div>
+        <ol class="step-list">
+          <li class="active" data-step="1"><i>1</i><span>先做预测<small>别急着算</small></span></li>
+          <li data-step="2"><i>2</i><span>观察运动<small>看见运算</small></span></li>
+          <li data-step="3"><i>3</i><span>说出理由<small>真正理解</small></span></li>
+          <li data-step="4"><i>4</i><span>举一反三<small>迁移检验</small></span></li>
+        </ol>
+        <div class="concept-card">
+          <span>今天建立</span>
+          <strong id="conceptTitle">方向 × 距离</strong>
+          <p id="conceptCopy">把符号看作方向，把绝对值看作距离。</p>
+        </div>
+      </aside>
+
+      <section class="lab" aria-live="polite">
+        <div class="lab-kicker"><span class="pulse"></span> CONCEPT LAB · 01</div>
+        <div class="story-strip"><span>✦</span><div><b id="storyTitle">星轨校准任务</b><p id="storyCopy">零点天文台失去坐标。带喵伯爵走完三段星轨，重新点亮终点。</p></div></div>
+        <div class="campaign-map" id="campaignMap" aria-label="零点失踪案任务地图">
+          <div class="campaign-title"><span>运算核心修复 · 点击可选关</span><button id="replayIntro" type="button">▶ 查看本章任务</button><b id="campaignProgress">第 4 关 / 6</b></div>
+          <ol>
+            <li data-campaign-task="0"><i>1</i><span>找到零点</span></li>
+            <li data-campaign-task="1"><i>2</i><span>穿越负区</span></li>
+            <li data-campaign-task="3"><i>3</i><span>修复方向门</span></li>
+            <li data-campaign-task="5"><i>4</i><span>连续星轨</span></li>
+            <li data-campaign-task="6"><i>5</i><span>双重撤销</span></li>
+            <li class="boss" data-campaign-task="7"><i>★</i><span>终极验证</span></li>
+          </ol>
+        </div>
+        <button class="micro-lesson-trigger" id="microLessonTrigger" type="button"><span>▶</span><b>先听喵伯爵 讲一遍</b><small>约 60 秒 · 可随时跳过</small></button>
+        <section class="micro-lesson hidden" id="microLesson" aria-label="喵伯爵微讲解">
+          <div class="micro-lesson-head"><img src="./miao-cc.png" alt="喵伯爵"><div><span>喵伯爵微讲解</span><strong id="microLessonTitle">先把算式变成运动</strong></div><button id="closeMicroLesson" type="button" aria-label="关闭微讲解">×</button></div>
+          <div class="micro-stage"><div class="micro-visual" id="microVisual">＋ →</div><div class="micro-copy"><b id="microStepLabel">第 1 步</b><h2 id="microStepTitle">符号代表方向</h2><p id="microStepCopy">正号表示向右，负号表示向左。</p></div></div>
+          <div class="micro-controls"><div class="micro-progress"><i class="active"></i><i></i><i></i></div><button id="microSpeak" type="button">🔊 重新朗读</button><button id="microPrev" type="button" disabled>上一步</button><button id="microNext" type="button">继续 <span>→</span></button></div>
+        </section>
+        <div class="prompt-row">
+          <div>
+            <p class="mission-label">任务：走完三段星轨，找到最终坐标</p>
+            <h1>向前 <mark>5</mark> 步，向后 <mark class="cyan">2</mark> 步，<br />再向前 <mark>3</mark> 步。</h1>
+          </div>
+          <div class="formula" aria-label="正五加负三等于多少">
+            <span class="positive">+5 − 2 + 3</span><b>=</b><span id="formulaResult">?</span>
+          </div>
+        </div>
+
+        <div class="world" id="world">
+          <div class="mission-briefing" id="missionBriefing">
+            <div class="briefing-copy"><span id="briefingCode">CASE 04 · 连续星轨</span><h2 id="briefingTitle">坐标核心散落了</h2><p id="briefingCopy">别急着算答案。先判断每一步的方向，帮助喵伯爵找回正确终点。</p><button id="beginInvestigation" type="button">开始调查 <b>▶</b></button></div>
+            <img src="./miao-cc.png" alt="喵伯爵准备调查">
+          </div>
+          <div class="zone-glow negative" aria-hidden="true"></div>
+          <div class="zone-glow positive" aria-hidden="true"></div>
+          <div class="zone-symbol negative" aria-hidden="true">−</div>
+          <div class="zone-symbol positive" aria-hidden="true">＋</div>
+          <div class="math-field" aria-hidden="true">
+            <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+          </div>
+          <div class="world-title"><span>✦</span> 零点天文台 <b id="missionCode">MISSION 03</b></div>
+          <div class="game-hud"><span><b id="xpValue">0</b> XP</span><span>连击 <b id="comboValue">×1</b></span></div>
+          <div class="move-sequence" id="moveSequence" aria-label="三步任务">
+            <div id="moveStep1"><i>1</i><span>向前</span><b>+5</b></div>
+            <em>→</em>
+            <div id="moveStep2"><i>2</i><span>向后</span><b>−2</b></div>
+            <em>→</em>
+            <div id="moveStep3"><i>3</i><span>向前</span><b>+3</b></div>
+          </div>
+          <div class="city-label left"><b>−</b> 负数领域</div>
+          <div class="city-label right">正数领域 <b>＋</b></div>
+          <div class="direction-arrow left-arrow">←</div>
+          <div class="direction-arrow right-arrow">→</div>
+          <div class="zero-portal"><span>起点 0</span></div>
+          <div class="finish-beacon" id="finishBeacon"><span>终点待预测</span></div>
+          <div class="prediction-trace" id="predictionTrace"></div>
+          <div class="journey-layer" id="journeyLayer" aria-hidden="true"></div>
+          <div class="robot" id="robot" aria-label="喵伯爵在数轴上的位置">
+            <img class="track-avatar" src="./miao-cc.png" alt="喵伯爵头像">
+            <span class="cat-walk-sprite" aria-hidden="true"></span>
+          </div>
+          <div class="avatar-speech" id="avatarSpeech">从 0 出发</div>
+          <div class="number-line" id="numberLine" role="slider" aria-label="在数字星轨上选择喵伯爵的终点" aria-valuemin="-9" aria-valuemax="9" aria-valuenow="0" tabindex="0"></div>
+          <div class="movement-trace" id="traceOne"></div>
+          <div class="movement-trace trace-two" id="traceTwo"></div>
+          <div class="movement-trace trace-three" id="traceThree"></div>
+          <div class="world-reward"><span>探索能量</span><i></i><i></i><i></i></div>
+          <div class="particle-layer" id="particleLayer"></div>
+        </div>
+
+        <section class="energy-board hidden" id="energyBoard">
+          <div class="energy-head"><span>方向能量实验</span><strong id="energyStatus">观察两股能量会发生什么</strong></div>
+          <div class="energy-equation">
+            <div class="energy-result-group"><b>最终结果</b><div class="energy-result" id="energyResult"><span>?</span><small>等待抵消</small></div></div>
+            <div class="energy-symbol energy-result-arrow">←</div>
+            <div class="energy-group"><b id="energyLabelB">第二股能量</b><div class="energy-tokens" id="energyB"></div></div>
+            <div class="energy-symbol energy-cancel-symbol" id="energyOperator">抵消</div>
+            <div class="energy-group"><b id="energyLabelA">第一股能量</b><div class="energy-tokens" id="energyA"></div></div>
+          </div>
+        </section>
+
+        <div class="action-guide" id="actionGuide">
+          <span id="actionNumber">①</span>
+          <div><b>你的回合</b><strong id="actionText">点击数字轨道，预测喵伯爵最后停下的位置</strong></div>
+        </div>
+
+        <div class="interaction" id="predictPanel">
+          <div class="instruction"><span>锁定目的地</span><strong id="predictionLabel">点击轨道上的数字石板</strong></div>
+          <button class="primary-btn" id="submitPrediction" disabled>先选择终点 <span>→</span></button>
+        </div>
+
+        <div class="interaction hidden" id="observePanel">
+          <div class="instruction"><span>让过程动起来</span><strong>注意方向和每次移动的距离</strong></div>
+          <button class="primary-btn" id="playMotion">② 开始三段行动 <span>▶</span></button>
+        </div>
+
+        <div class="reason-panel hidden" id="reasonPanel">
+          <div class="reason-title"><span>最后一步</span><strong id="reasonQuestion">为什么结果是 +2？</strong></div>
+          <div class="reason-options">
+            <button data-reason="sign" id="reasonSign">两个数都有符号，所以保留正号</button>
+            <button data-reason="correct" id="reasonCorrect">方向相反，先抵消；5 比 3 大，所以剩下向右 2 格</button>
+            <button data-reason="sum" id="reasonSum">5 和 3 相加得 8，再选择正号</button>
+          </div>
+        </div>
+
+        <section class="transfer-panel hidden" id="transferPanel">
+          <div class="transfer-head">
+            <div><span>TRANSFER CHALLENGE</span><strong>举一反三</strong></div>
+            <b>不重播动画 · 靠自己迁移</b>
+          </div>
+          <p id="transferContext">数字和方向都变了，你还能用刚才的规律吗？</p>
+          <div class="transfer-question" id="transferQuestion">−8 + (+3) = ?</div>
+          <div class="transfer-options" id="transferOptions"></div>
+          <div class="transfer-feedback hidden" id="transferFeedback"></div>
+        </section>
+
+        <div class="success-card hidden" id="successCard">
+          <div class="success-icon">✓</div>
+          <div><span>迁移检验通过</span><strong id="successTitle">你已经能把规律用到新题里</strong></div>
+          <button id="nextChallenge">试一道变式 →</button>
+        </div>
+      </section>
+
+      <aside class="coach">
+        <div class="coach-head">
+          <div class="cc-orb"><img src="./miao-cc.png" alt="喵伯爵老师" /></div>
+          <div><span>喵伯爵</span><strong>AI 概念教练</strong></div>
+          <i class="online"></i>
+        </div>
+        <div class="coach-stage" aria-hidden="true">
+          <div class="coach-halo"></div>
+          <img src="./miao-cc.png" alt="" />
+          <p><b>“先别背答案。”</b><br />我们把它看明白。</p>
+        </div>
+        <div class="dialogue" id="dialogue">
+          <p class="cc-message">先别套公式。想象你就站在数字 <b>0</b> 上：走完这两步，你会停在哪儿？</p>
+        </div>
+        <div class="thinking-card">
+          <span>喵伯爵正在观察</span>
+          <div><i class="active"></i><b>方向判断</b><em id="directionState">等待作答</em></div>
+          <div><i></i><b>距离比较</b><em id="distanceState">尚未检测</em></div>
+          <div><i></i><b>符号理解</b><em id="signState">尚未检测</em></div>
+        </div>
+        <button class="hint-btn" id="hintBtn"><span>✦</span> 给我一个提示</button>
+        <p class="coach-note">喵伯爵不替你作答，只在你需要时推进一步。</p>
+      </aside>
+    </main>
+  </div>
+
+  <div class="catalog-overlay hidden" id="catalogOverlay" role="dialog" aria-modal="true" aria-labelledby="catalogTitle">
+    <div class="catalog-modal">
+      <header class="catalog-header">
+        <div><span>人教版 · 2024新版</span><h2 id="catalogTitle">七年级数学上册</h2><p>教材目录 × 元来 AI 学习路径</p></div>
+        <button id="closeCatalog" aria-label="关闭课程目录">×</button>
+      </header>
+      <div class="catalog-body">
+        <nav class="chapter-list" aria-label="教材章节">
+          <button onclick="location.href='./chapter1.html'"><b>01</b><span>有理数<small>第 1 页</small></span><em>进入课程</em></button>
+          <button class="active"><b>02</b><span>有理数的运算<small>第 24 页</small></span><em>学习中</em></button>
+          <button onclick="location.href='./chapters-3-6.html?chapter=3'"><b>03</b><span>代数式<small>第 68 页</small></span><em>进入课程</em></button>
+          <button onclick="location.href='./chapters-3-6.html?chapter=4'"><b>04</b><span>整式的加减<small>第 88 页</small></span><em>进入课程</em></button>
+          <button onclick="location.href='./chapters-3-6.html?chapter=5'"><b>05</b><span>一元一次方程<small>第 110 页</small></span><em>进入课程</em></button>
+          <button onclick="location.href='./chapters-3-6.html?chapter=6'"><b>06</b><span>几何图形初步<small>第 149 页</small></span><em>进入课程</em></button>
+        </nav>
+        <section class="chapter-detail">
+          <div class="chapter-overview">
+            <div><span>第二章</span><h3>有理数的运算</h3><p>教材从第 24 页开始 · 当前开放 4 个 AI 学习单元</p></div>
+            <button class="continue-path" id="continuePath">继续上次学习 <span>→</span></button>
+          </div>
+          <div class="textbook-section">
+            <div class="section-title"><span>2.1</span><div><strong>有理数的加法与减法</strong><small>教材第 25–37 页</small></div><em>已开放</em></div>
+            <div class="lesson-grid">
+              <button class="lesson-card" data-start-task="0">
+                <span>2.1.1 · 3个概念实验</span><strong>有理数的加法</strong><p>用方向和距离理解同号累积、异号抵消。</p><footer><i><b id="additionBar"></b></i><em id="additionProgress">0 / 3</em></footer>
+              </button>
+              <button class="lesson-card" data-start-task="3">
+                <span>2.1.2 · 2个概念实验</span><strong>有理数的减法</strong><p>把减法理解成撤销一次运动。</p><footer><i><b id="subtractionBar"></b></i><em id="subtractionProgress">0 / 2</em></footer>
+              </button>
+              <button class="lesson-card" data-start-task="5">
+                <span>2.1.2 · 加减混合部分</span><strong>加减混合运算</strong><p>逐项翻译符号，完成连续三步运动。</p><footer><i><b id="mixedBar"></b></i><em id="mixedProgress">0 / 2</em></footer>
+              </button>
+            </div>
+          </div>
+          <div class="textbook-section">
+            <div class="section-title"><span>2.2</span><div><strong>有理数的乘法与除法</strong><small>教材第 38–50 页</small></div><em>开发中</em></div>
+            <div class="lesson-grid lesson-grid-two">
+              <button class="lesson-card" data-start-task="7">
+                <span>2.2.1 · 2个概念实验</span><strong>有理数的乘法</strong><p>通过符号门决定方向，用分组运动理解积的绝对值。</p><footer><i><b id="multiplicationBar"></b></i><em id="multiplicationProgress">0 / 2</em></footer>
+              </button>
+              <button class="lesson-card" onclick="location.href='./chapter2-advanced.html'"><span>2.2.2 · 2个概念实验</span><strong>有理数的除法</strong><p>用乘法的逆运算理解除法、倒数与符号规律。</p><footer><em>进入课程 →</em></footer></button>
+            </div>
+          </div>
+          <div class="locked-section" role="button" tabindex="0" onclick="location.href='./chapter2-advanced.html'" style="cursor:pointer"><span>2.3–2.4</span><div><strong>乘方、科学记数法与混合运算</strong><small>教材第 51–67 页 · 4个概念实验</small></div><em>进入课程 →</em></div>
+          <div class="catalog-note"><span>教材配套内容</span><p>阅读与思考：正负术 · 探究与发现：从数系扩充看有理数乘法法则 · 数学活动 · 本章小结</p></div>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <div class="completion-overlay hidden" id="completionOverlay" role="dialog" aria-modal="true" aria-labelledby="completionTitle">
+    <div class="completion-modal">
+      <div class="completion-badge">LESSON COMPLETE</div>
+      <div class="completion-portrait"><img src="./miao-cc.png" alt="喵伯爵" /></div>
+      <h2 id="completionTitle">本课完成</h2>
+      <p id="completionIntro">你不只是算出了答案，还看懂了异号相加为什么要“先抵消”。</p>
+      <div class="mastery-grid">
+        <div><span>方向判断</span><strong>已掌握</strong><i></i></div>
+        <div><span>距离比较</span><strong>已掌握</strong><i></i></div>
+        <div><span>符号理解</span><strong>已掌握</strong><i></i></div>
+        <div><span>举一反三</span><strong>已通过</strong><i></i></div>
+      </div>
+      <div class="coach-summary"><b>喵伯爵的判断</b><p id="completionFeedback">你已经能把“符号”还原成方向。下一步，我们看看两个数方向相同时会发生什么。</p></div>
+      <div class="ability-unlock"><i>✦</i><div><span>新能力已解锁</span><strong id="abilityName">三步轨迹规划师</strong><p id="abilityCopy">你能从上一步的终点继续行动，不会把每一步重新从零开始。</p></div></div>
+      <div class="next-lesson" id="nextLessonCard">
+        <span>接下来 · 约 6 分钟</span>
+        <strong>同号相加：向同一个方向累积</strong>
+        <p>从“互相抵消”进入“共同累积”。</p>
+      </div>
+      <div class="completion-actions">
+        <button class="secondary-btn" id="reviewLesson">重新练习</button>
+        <button class="primary-btn" id="continueLesson">进入下一课 <span>→</span></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status"></div>
+  <script src="./app.js?v=60"></script>
+  <script src="./catalog.js"></script>
+</body>
+</html>

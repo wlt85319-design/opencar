@@ -1,0 +1,11 @@
+.world.phase-lecture .visual{opacity:.55;transform:scale(.94)}
+.world.phase-example .visual{animation:conceptFloat 1.8s ease-in-out infinite alternate}
+.world.phase-counter .token{border-color:#ff6076;box-shadow:0 0 22px #ff607655}
+.world.phase-check .token{border-color:var(--cyan)}
+.world.phase-reason .token{box-shadow:0 0 22px #48dce966}
+.world.phase-transfer .visual{transform:translateX(8px)}
+.world.phase-summary .visual{filter:saturate(1.25);transform:scale(1.04)}
+.visual{transition:transform .55s,opacity .55s,filter .55s}
+.lesson-chip{position:absolute;left:24px;bottom:18px;background:#ffffffed;color:#111827;border-left:4px solid #d9ff3f;border-radius:10px;padding:9px 12px;font-size:12px;font-weight:800;max-width:52%;z-index:2}
+.stage-tabs{flex-wrap:wrap}
+@keyframes conceptFloat{to{transform:translateY(-8px)}}

@@ -1,0 +1,24 @@
+:root{--ink:#111827;--panel:#fff;--panel2:#f4f7f3;--blue:#5367ff;--acid:#d9ff3f;--gold:#b97700;--muted:#667085;--line:#dce3e7;--danger:#e64f68;--white:#111827}
+html,body{background:radial-gradient(circle at 0 20%,#d9f8ff,transparent 30%),#f4f7f3;color:var(--ink)}
+.app-shell{background:transparent}
+.topbar{border-bottom:1px solid var(--line);background:rgba(255,255,255,.96);box-shadow:0 1px 0 rgba(17,24,39,.03)}
+.brand{color:var(--ink)}.brand>b{background:#17233f;color:var(--acid)}.brand em{color:var(--blue)}
+.course-name small{color:var(--muted)}
+.top-actions a,.top-actions button{border-color:var(--line);background:#fff;color:var(--ink)}
+.top-actions button[aria-pressed="false"]{color:var(--muted)}
+.case-rail,.coach-desk{background:rgba(255,255,255,.82)}.case-rail{border-right-color:var(--line)}.coach-desk{border-left-color:var(--line)}
+.case-title>span,.coach-head>span,.mind-model>span,.teacher-action>span{color:var(--blue)}
+.case-title p,.phase-item,.evidence-card li{color:var(--muted)}
+.phase-item.active{color:var(--ink)}.phase-item.active b{background:#17233f;color:var(--acid);border-color:#17233f;box-shadow:none}
+.phase-item.done b{border-color:#35b66a;color:#238a4e}.evidence-card{border-color:var(--line);background:#fff}.evidence-card>span{color:#718f00}.evidence-card li.ok{color:var(--ink)}
+.learning-stage{background:transparent}.stage-head>div>span{color:var(--blue)}
+.progress-ring{border-color:#dce8a8;border-top-color:#9fbe16;background:#fff}.progress-ring span{color:var(--muted)}
+.observatory{border-color:#cbd5e1;box-shadow:0 18px 45px rgba(24,39,58,.14)}
+.dialogue-card{border-color:var(--line);background:#fff;box-shadow:0 16px 40px rgba(27,49,66,.08)}
+.teacher-line span{color:var(--blue)}.teacher-line p{color:var(--ink)}
+.student-tools button{border-color:var(--line);background:#f8fafb;color:var(--ink)}.student-tools button:hover,.student-tools button.selected{border-color:#9fbe16;background:#f3ffd1}
+.continue-btn,.send-btn{background:var(--acid);color:var(--ink)}
+.icon-btn.speaking{border-color:#9fbe16;color:#718f00;box-shadow:0 0 0 3px rgba(159,190,22,.12)}
+.mind-model,.teacher-action{border-color:var(--line);background:#fff}.mind-model p,.teacher-action p{color:var(--muted)}
+.result-overlay{background:rgba(226,232,240,.82)}
+@media(max-width:760px){.case-rail{background:#fff}.topbar{background:#fff}}
