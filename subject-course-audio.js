@@ -12,8 +12,9 @@
     const ready=supportedBooks.has(book?.id)&&unit>=0&&section>=0&&stage>=0&&stage<8;
     if(!ready)return '';
     const path='./audio/'+book.id+'/u'+pad(unit+1)+'/s'+pad(section+1)+'/p'+pad(stage+1)+'.opus';
-    // These clips were re-recorded to match the revised Starter lessons.
-    // Bust old browser caches without re-downloading unrelated course audio.
+    // Starter Unit 1 now uses language-tagged narration: Chinese teaching and
+    // English models share one male voice, but use their correct phonemizers.
+    if(book.id==='eng7a'&&unit===0)return path+'?voice=bilingual-1';
     return (book.id==='eng7a'&&unit<9)||(book.id==='eng7b'&&unit<8)?path+'?curriculum=82':path;
   }
 
